@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from "@/views/login/login.vue"
 import Register from "@/views/login/register.vue"
-import Admin from "@/views/admin/admin.vue"
+import Home from "@/views/home/home.vue"
+import Anime from '@/views/anime/anime.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,10 +18,16 @@ const router = createRouter({
       component: Register
     },
     {
-      path: '/admin',
-      name: 'admin',
-      component: Admin
+      path: '/home',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/home/anime',
+      name: 'anime',
+      component: Anime
     }
+
   ],
 })
 

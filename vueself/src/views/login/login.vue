@@ -95,7 +95,7 @@
           if (username && password) {
             // Perform login logic here
             alert('Login successful!')
-            this.$router.push('/admin')
+            this.$router.push('/home')
           } else {
             ElMessage.error('请输入用户名和密码')
           }
