@@ -107,7 +107,7 @@
   <style scoped lang="scss">
   .common-layout {
     height: 100vh;
-    width: 150vh;
+    width: 100%;
     background-color: #f7aae4;
     display: flex;
     flex-direction: column;

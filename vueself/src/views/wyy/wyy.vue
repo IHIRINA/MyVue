@@ -48,7 +48,7 @@
                     <el-icon style="color: red;" :size="40"><Grid /></el-icon>
                     
                 </i>
-                <el-breadcrumb :separator-icon="ArrowRight" style="margin-left: 100px; color: blueviolet;">
+                <el-breadcrumb style="margin-left: 100px; color: blueviolet;">
                     <span style="margin-left: 10px; color: brown;">（开放功能这些捏）</span>
                     <el-breadcrumb-item :to="{ path: '/home' }">我的主页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/music'}">网抑云音乐</el-breadcrumb-item>
@@ -83,7 +83,7 @@
             <el-main>
             <!--主内容区-->
             <div style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: papayawhip; color: blueviolet;">
-                <h1 style="font-size: 60px; color: cadetblue;">动漫待更改</h1>
+                <h1 style="font-size: 60px; color: cadetblue;">wyy!</h1>
             </div>
             </el-main>
         </el-container>
@@ -97,10 +97,11 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, SIZE_INJECTION_KEY } from 'element-plus'
-import { ArrowRight } from '@element-plus/icons-vue'
+
 
 export default {
-    name: 'Anime',
+    name: 'Music',
+
 
     data() {
         return {

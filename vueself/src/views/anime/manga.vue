@@ -83,7 +83,7 @@
             <el-main>
             <!--主内容区-->
             <div style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: papayawhip; color: blueviolet;">
-                <h1 style="font-size: 60px; color: cadetblue;">动漫待更改</h1>
+                <h1 style="font-size: 60px; color: cadetblue;">漫画待更改</h1>
             </div>
             </el-main>
         </el-container>
@@ -100,7 +100,7 @@ import { ElMessage, SIZE_INJECTION_KEY } from 'element-plus'
 import { ArrowRight } from '@element-plus/icons-vue'
 
 export default {
-    name: 'Anime',
+    name: 'Manga',
 
     data() {
         return {
