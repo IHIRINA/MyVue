@@ -32,4 +32,18 @@ public class Result {
     public static Result success() {
         return Result.builder().code(CODE_SUCCESS).msg("success").build();
     }
+
+    public static Result success(Object data) {
+        return Result.builder().code(CODE_SUCCESS).msg("success").data(data).build();
+    }
+
+    public static Result error(String msg) {
+        return Result.builder().code(CODE_ERROR).msg(msg).build();
+    }
+    public static Result error(String code, String msg) {
+        return Result.builder().code(code).msg(msg).build();
+    }
+    public static Result error() {
+        return Result.builder().code(CODE_ERROR).msg("sys_error").build();
+    }
 }
