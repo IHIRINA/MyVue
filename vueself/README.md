@@ -29,3 +29,8 @@
 
 - 200成功，     
 400接口参数错误，     404接口路径写错了或者是参数写错了，       405接口请求类型错误（通过网页端地址栏只能发送get请求）
+
+
+
+## MySQL
+- 数据类型：int   bigint  double  varchar字符串   text大文本   date datetime timestamp

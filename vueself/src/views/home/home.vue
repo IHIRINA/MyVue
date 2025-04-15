@@ -28,7 +28,7 @@
                 <el-sub-menu>
                     <template #title>
                         <el-icon style="color: blueviolet;"><Menu /></el-icon>
-                        <span>二刺猿</span>
+                        <span style="display: flex;height: 56px; width: 1000px;">二刺猿</span>
                     </template>
                     <template slot="title">
                         <i class="el-icon-menu"></i>
@@ -63,7 +63,7 @@
                 </span>
 
                 <div style="flex: 1; width: 0; display: flex; align-items: center; justify-content: flex-end;">
-                    <el-dropdown palcement="bottom">
+                    <el-dropdown placement="bottom">
                         <span>
                             <img src="@/assets/5t5.jpg" alt="logo" style="width: 40px; height: 40px; box-shadow: 2px 0 6px rgba(0,21,41,35);">
                         </span>
@@ -82,9 +82,21 @@
           
             <el-main>
             <!--主内容区-->
-            <div style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: papayawhip; color: blueviolet;">
-                <h1 style="font-size: 60px; color: cadetblue;">欢迎来到我的主页</h1>
-            </div>
+                <div style="display: flex;">
+                    <el-card>
+                        <div style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: papayawhip; color: blueviolet;">
+                            <h1 style="font-size: 60px; color: cadetblue;">欢迎来到我的主页</h1>
+                        </div>
+                    </el-card>
+                </div>
+
+                <div>
+                    <el-table :data="users">
+                        <el-table-column label="ID" props="id"></el-table-column>
+                        <el-table-column label="username" props="username"></el-table-column>
+                        <el-table-column label="" props="id"></el-table-column>
+                    </el-table>
+                </div>
             </el-main>
         </el-container>
 
@@ -98,6 +110,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, SIZE_INJECTION_KEY } from 'element-plus'
 import { ArrowRight } from '@element-plus/icons-vue'
+import axios from "axios"
 
 export default {
     name: 'Home',
@@ -107,7 +120,14 @@ export default {
             isCollapse: false, // 控制菜单的收缩状态
             asideWidth: '200px', // 侧边栏宽度
             change: '收起',
+            users: []
         }
+    },
+
+    mounted() {
+        axios.get('http://localhost:').then(res => {
+            console.log(res);         
+        })
     },
 
     methods: {
@@ -126,6 +146,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .common-layout {
     box-shadow: 2px 0 6px rgba(0,21,41,35);
 }
@@ -147,5 +168,8 @@ export default {
     background-color: bisque;
     margin: 1px;
     align-items: center;
+}
+.el-main {
+    background-color: rgb(255, 248, 239);
 }
 </style>

@@ -148,4 +148,7 @@ export default {
     margin: 1px;
     align-items: center;
 }
+.el-main {
+    background-color: rgb(255, 248, 239);
+}
 </style>

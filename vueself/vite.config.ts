@@ -9,6 +9,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 const pathSrc = path.resolve(__dirname, 'src')
 // https://vite.dev/config/
@@ -32,7 +33,18 @@ export default defineConfig({
     Icons({
       autoInstall: true,
     }),
+    createHtmlPlugin({
+      minify: true,
+      inject: {
+          data: {
+              title: 'VueSelf',
+          },
+      },
+  }),
   ],
+  server: {
+    port: 7000,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

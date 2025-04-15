@@ -1,8 +1,12 @@
 server:
-  port: 9090
+  port: 8080
 spring:
+
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/demoSQL?useSSL=false&useUnicode=true&characterEncoding=utf8&severTimezone=GHT%2b8
         username: IHIRINA
         password: 2582067027
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.model
