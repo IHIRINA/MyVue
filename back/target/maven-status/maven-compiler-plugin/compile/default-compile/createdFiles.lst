@@ -1,0 +1,10 @@
+com\example\back\mapper\UserMapper.class
+com\example\back\entity\User$UserBuilder.class
+com\example\back\common\Result$ResultBuilder.class
+com\example\back\controller\Obj.class
+com\example\back\BackApplication.class
+com\example\back\entity\User.class
+com\example\back\service\UserService.class
+com\example\back\controller\UserController.class
+com\example\back\common\Result.class
+com\example\back\controller\WebController.class

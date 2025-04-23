@@ -1,18 +1,18 @@
 package com.example.back.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.back.common.Result;
 import com.example.back.entity.User;
 import com.example.back.service.UserService;
 
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -33,5 +33,38 @@ public class UserController {
             }
         }
         return Result.success("success");
+    }
+
+    /*更新用户信息 */
+    @PutMapping("/update")
+    public Result update(@RequestBody User user) {
+        userService.updateUser(user);
+        return Result.success("success");
+    }
+
+    /*删除用户信息 */
+    @DeleteMapping("/delete/{id}")
+    public Result delete(@RequestBody Integer id) {
+        userService.deleteUser(id);
+        return Result.success("success");
+    }
+
+    /*批量删除 */
+    @DeleteMapping("/delete/batch")
+    public Result deleteBatch(@RequestBody List<Integer> ids) {
+        userService.deleteBatch(ids);
+        return Result.success("success");
+    }
+
+    @GetMapping("/selectAll")
+    public Result selectAll() {
+        List<User> userList = userService.selectAll();
+        return Result.success(userList);
+    }
+
+    @GetMapping("/selectById/{id}")
+    public Result selectById(@PathVariable Integer id) {
+        User user =  userService.selectById(id);
+        return Result.success(user);
     }
 }

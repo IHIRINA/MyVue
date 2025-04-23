@@ -34,3 +34,10 @@
 
 ## MySQL
 - 数据类型：int   bigint  double  varchar字符串   text大文本   date datetime timestamp
+
+
+
+
+
+
+

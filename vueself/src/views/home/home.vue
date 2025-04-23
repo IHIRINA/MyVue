@@ -11,7 +11,7 @@
                 </span>
             </div>
 
-            <el-menu :collapse="isCollapse" router  active-color="blueviolet !important" style="border: none; background-color: pink; " :default-active="$route.path">
+            <el-menu :collapse="isCollapse" router  active-color="blueviolet !important" style="border: none; background-color: pink; " :default-active=" $route.path ">
                 <el-menu-item index="/home">
                     <el-icon style="color: blueviolet;"><HomeFilled /></el-icon>
                     <span style="color: black;">我的主页</span>
@@ -48,7 +48,7 @@
                     <el-icon style="color: red;" :size="40"><Grid /></el-icon>
                     
                 </i>
-                <el-breadcrumb :separator-icon="ArrowRight" style="margin-left: 100px; color: blueviolet;">
+                <el-breadcrumb style="margin-left: 100px; color: blueviolet;">
                     <span style="margin-left: 10px; color: brown;">（开放功能这些捏）</span>
                     <el-breadcrumb-item :to="{ path: '/home' }">我的主页</el-breadcrumb-item>
                     <el-breadcrumb-item :to="{ path: '/music'}">网抑云音乐</el-breadcrumb-item>
@@ -82,19 +82,21 @@
           
             <el-main>
             <!--主内容区-->
-                <div style="display: flex;">
+                <div>
                     <el-card>
-                        <div style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: papayawhip; color: blueviolet;">
-                            <h1 style="font-size: 60px; color: cadetblue;">欢迎来到我的主页</h1>
-                        </div>
+                      <div style="height: 100%; display: flex; align-items: center; justify-content: center; background-color: papayawhip; color: blueviolet;">
+                        <h1 style="font-size: 40px; color: cadetblue;">欢迎来到我的网站捏，以下的宝贝们</h1>
+                      </div>
                     </el-card>
                 </div>
 
                 <div>
                     <el-table :data="users">
-                        <el-table-column label="ID" props="id"></el-table-column>
+                      <!--label是表格的头部-->
+                        <el-table-column label="ID" props="id">{{ users }}</el-table-column>
                         <el-table-column label="username" props="username"></el-table-column>
-                        <el-table-column label="" props="id"></el-table-column>
+                        <el-table-column label="password" props="password"></el-table-column>
+                        <el-table-column label="address" props="address"></el-table-column>
                     </el-table>
                 </div>
             </el-main>
@@ -108,11 +110,20 @@
 <script lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { ElMessage, SIZE_INJECTION_KEY } from 'element-plus'
-import { ArrowRight } from '@element-plus/icons-vue'
+
+import {ArrowRight, EditPen, Grid, HomeFilled, Menu, Rank, Service} from '@element-plus/icons-vue';
 import axios from "axios"
 
 export default {
+    components: {
+      Grid,
+      Menu,
+      EditPen,
+      Service,
+      HomeFilled,
+      Rank,
+      ArrowRight,
+    },
     name: 'Home',
 
     data() {
@@ -125,8 +136,15 @@ export default {
     },
 
     mounted() {
-        axios.get('http://localhost:').then(res => {
-            console.log(res);         
+        axios.get('http://localhost:9090/user/selectAll').then(res => {
+            console.log(res.data); //后台返回的数据
+            this.users = res.data.data;
+            /*res.data = {      //数据格式
+                code: '200',
+                msg: 'success',
+                data: {
+                }
+            } */
         })
     },
 

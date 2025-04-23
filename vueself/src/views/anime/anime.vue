@@ -97,10 +97,11 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, SIZE_INJECTION_KEY } from 'element-plus'
-import { ArrowRight } from '@element-plus/icons-vue'
+import {ArrowRight, EditPen, Grid, HomeFilled, Menu, Rank, Service} from '@element-plus/icons-vue'
 
 export default {
     name: 'Anime',
+  components: {Rank, Grid, Menu, EditPen, Service, HomeFilled},
 
     data() {
         return {
@@ -111,6 +112,7 @@ export default {
     },
 
     methods: {
+      ArrowRight,
         // 控制菜单的收缩状态
         toggleMenu() {
             this.isCollapse = !this.isCollapse

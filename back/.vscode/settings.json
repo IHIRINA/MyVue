@@ -1,0 +1,19 @@
+{
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "D:/JAVA17",
+            "default": true
+        }
+    ],
+    "java.compiler.release": 17,
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.project.sourcePaths": [
+        "src/main/java"
+    ],
+    "java.project.outputPath": "target/classes",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.annotationProcessing.enabled": true
+}

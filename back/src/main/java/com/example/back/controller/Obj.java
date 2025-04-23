@@ -1,6 +1,9 @@
 package com.example.back.controller;
 
+import lombok.Setter;
+
 public class Obj {
+    @Setter
     private String name;
     private String id;
 
@@ -10,8 +13,5 @@ public class Obj {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-    
+
 }
