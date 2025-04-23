@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {config} from "vue";
 
 const request = axios.create({
     baseURL: 'http://localhost:9090',
@@ -14,7 +13,7 @@ request.interceptors.request.use(config => {
     //let user = localStorage.getItem("user") ? JSON.parse(localStorge.getItem("user") : null
     //config.headers['token'] = user ? .token
     return config;
-}), error => {
+}), (error: any) => {
     console.error('request error:' + error)  //for debug
     return Promise.reject(error)
 };
@@ -36,5 +35,6 @@ request.interceptors.response.use(
         return Promise.reject(error)
     }
 )
+
 
 export default request

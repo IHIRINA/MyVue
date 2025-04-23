@@ -112,7 +112,8 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import {ArrowRight, EditPen, Grid, HomeFilled, Menu, Rank, Service} from '@element-plus/icons-vue';
-import axios from "axios"
+
+import request from "@/utils/request";
 
 export default {
     components: {
@@ -136,16 +137,9 @@ export default {
     },
 
     mounted() {
-        axios.get('http://localhost:9090/user/selectAll').then(res => {
-            console.log(res.data); //后台返回的数据
-            this.users = res.data.data;
-            /*res.data = {      //数据格式
-                code: '200',
-                msg: 'success',
-                data: {
-                }
-            } */
-        })
+      request.get('/user/selectAll').then((res: { data: never[]; }) => {
+        this.users = res.data;
+      })
     },
 
     methods: {
