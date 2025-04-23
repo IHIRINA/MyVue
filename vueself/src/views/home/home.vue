@@ -93,10 +93,10 @@
                 <div>
                     <el-table :data="users">
                       <!--label是表格的头部-->
-                        <el-table-column label="ID" props="id">{{ users }}</el-table-column>
-                        <el-table-column label="username" props="username"></el-table-column>
-                        <el-table-column label="password" props="password"></el-table-column>
-                        <el-table-column label="address" props="address"></el-table-column>
+                        <el-table-column label="ID" prop="id"></el-table-column>
+                        <el-table-column label="username" prop="username"></el-table-column>
+                        <el-table-column label="password" prop="password"></el-table-column>
+                        <el-table-column label="address" prop="address"></el-table-column>
                     </el-table>
                 </div>
             </el-main>
@@ -137,8 +137,9 @@ export default {
     },
 
     mounted() {
-      request.get('/user/selectAll').then((res: { data: never[]; }) => {
-        this.users = res.data;
+      request.get('/user/selectAll')
+          .then((res) => {
+          this.users = res.data;
       })
     },
 
