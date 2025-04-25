@@ -38,4 +38,12 @@ public class UserService {
     public User selectById(Integer id) {
         return userMapper.selectById(id);
     }
+
+    public User selectByMore(String username , String name) {
+        return (User) userMapper.selectByMore(username , name);
+    }
+
+    public User selectByMo(String username, String name) {
+        return (User) userMapper.selectByMo(username, name);
+    }
 }

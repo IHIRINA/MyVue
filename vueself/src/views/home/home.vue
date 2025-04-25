@@ -138,7 +138,7 @@ export default {
 
     mounted() {
       request.get('/user/selectAll')
-          .then((res) => {
+          .then((res: { data: never[]; }) => {
           this.users = res.data;
       })
     },

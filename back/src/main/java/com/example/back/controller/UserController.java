@@ -1,7 +1,9 @@
 package com.example.back.controller;
 
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -67,4 +69,23 @@ public class UserController {
         User user =  userService.selectById(id);
         return Result.success(user);
     }
+
+    @GetMapping("/selectByMore")
+    public Result selectByMore(@RequestParam String username, @RequestParam String name) {
+        List<User> user = Collections.singletonList(userService.selectByMore(username, name));
+        return Result.success(user);
+    }
+
+    @GetMapping("/selectByMo")
+    public Result selectByMo(@RequestParam String username, @RequestParam String name) {
+        List<User> user = Collections.singletonList(userService.selectByMo(username, name));
+        return Result.success(user);
+    }
+/*
+    @GetMapping("/selectByPage")
+    public Result selectByPage(@RequestParam String username, @RequestParam String name) {
+        Map<String , Object> map = Collections.singletonMap("username", username);
+    }
+
+ */
 }
